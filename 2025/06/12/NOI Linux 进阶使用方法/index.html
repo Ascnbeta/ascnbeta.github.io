@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>NOI Linux 进阶使用方法 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="NOI Linux 进阶使用技巧0.前言本篇文章主要是面向准备使用 NOI Linux 作为写代码系统甚至主力系统的同学们，因此本文已经假定读者已经会安装 NOI Linux 虚拟机，有一定的虚拟机使用经验并且懂得一些基础的 Ubuntu 使用方法。 但是经过一下午的大战配置，作者本人不建议使用 NOI Linux 作为主力系统（应该也没人会这么用吧），可能是 CCF 阉割的原因导致网络连接部分好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NOI Linux 进阶使用方法">
+<meta property="og:url" content="http://example.com/2025/06/12/NOI%20Linux%20%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="NOI Linux 进阶使用技巧0.前言本篇文章主要是面向准备使用 NOI Linux 作为写代码系统甚至主力系统的同学们，因此本文已经假定读者已经会安装 NOI Linux 虚拟机，有一定的虚拟机使用经验并且懂得一些基础的 Ubuntu 使用方法。 但是经过一下午的大战配置，作者本人不建议使用 NOI Linux 作为主力系统（应该也没人会这么用吧），可能是 CCF 阉割的原因导致网络连接部分好">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-06-12T10:51:47.000Z">
+<meta property="article:modified_time" content="2025-06-12T10:53:04.604Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "NOI Linux 进阶使用方法",
+  "url": "http://example.com/2025/06/12/NOI%20Linux%20%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2025-06-12T10:51:47.000Z",
+  "dateModified": "2025-06-12T10:53:04.604Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/06/12/NOI%20Linux%20%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NOI Linux 进阶使用方法',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">NOI Linux 进阶使用方法</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">NOI Linux 进阶使用方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-06-12T10:51:47.000Z" title="Created 2025-06-12 18:51:47">2025-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-06-12T10:53:04.604Z" title="Updated 2025-06-12 18:53:04">2025-06-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="NOI-Linux-进阶使用技巧"><a href="#NOI-Linux-进阶使用技巧" class="headerlink" title="NOI Linux 进阶使用技巧"></a>NOI Linux 进阶使用技巧</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>本篇文章主要是面向准备使用 NOI Linux 作为写代码系统甚至主力系统的同学们，因此本文已经假定读者已经会安装 NOI Linux 虚拟机，有一定的虚拟机使用经验并且懂得一些基础的 Ubuntu 使用方法。</p>
+<p>但是经过一下午的<del>大战</del>配置，作者本人不建议使用 NOI Linux 作为主力系统（应该也没人会这么用吧），可能是 CCF 阉割的原因导致网络连接部分好像功能有缺失，导致可能出现主机有网络但是虚拟机没有网并且还无法设置的情况。不过它作为一个纯粹的写代码系统还是很合适的，毕竟系统已经安装好了很多现成的 IDE 或是文本编辑器。另外系统也比较轻量，没有无关功能。同时还可以熟悉 NOI Linux 使用以防止 NOI 赛场上出现不熟悉系统的情况。</p>
+<p><del>虽然我可能到不了 NOI 赛场。</del></p>
+<p>另外如果你使用的是虚拟机那么要保证实体机内存足够，8G 左右，并且尽量使用固态硬盘以避免不必要的卡顿。</p>
+<p>笔者使用的是 VMware Workstation 15 安装的系统，因此以下教程偏向于 VMware 端。</p>
+<h3 id="1-如何安装-VMware-Tools"><a href="#1-如何安装-VMware-Tools" class="headerlink" title="1.如何安装 VMware Tools"></a>1.如何安装 VMware Tools</h3><p>可能有些读者并不在意过小的窗口，但是安装 VMware Tools 是接下来新建共享文件夹的必要操作。</p>
+<p>当你按照习惯在 VMware 里点击了 “安装 VMware Tools” 选项，成功在虚拟机里找到插入的光盘后，你可能看到如下界面，然后发现：</p>
+<p>我不会安装啊！</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/5apv5tvm.png" alt="img"></p>
+<p>解决方法：</p>
+<p>首先，打开中间那个文件（如果提示用什么打开选择归档管理器），然后点击左上角的”提取“，推荐选择主目录，然后点击右上角的“提取”。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/kt1gxkdg.png" alt="img"></p>
+<p>等待提取完成后，打开刚刚提取出的文件夹，里面应该是这样的：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/e6gmniw5.png" alt="img"></p>
+<p>在空白处右键，点击”在终端打开“，输入以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
+
+<p>然后可能提示要输入密码，输入即可。注意终端并不会显示你输入的密码，你只需要输入密码后点击回车，等待一会儿，如果密码正确自然会执行。（如果提示找不到命令，请确认你输入的文件名是否有误，如果确实无误请自行 bing：如何在 Ubuntu 安装 Perl）</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/zxiqy2h3.png" alt="img"></p>
+<p>接下来一路输入 <code>yes</code> 和回车，全部按照默认设置安装即可。（当然你也有兴趣也可以自己读一读内容自己决定）</p>
+<p>安装完后建议重启电脑，然后虚拟机大小就正常了。</p>
+<h3 id="2-如何新建共享文件夹"><a href="#2-如何新建共享文件夹" class="headerlink" title="2.如何新建共享文件夹"></a>2.如何新建共享文件夹</h3><p>可能你需要在虚拟机和实体机之间传输文件，那么显然，比赛时那种能在虚拟机和实体机同步的共享文件夹就是很好的选择。</p>
+<p>不过需要注意的是，在 Ubuntu 中只能在共享文件夹新建名字长度为 $1$ 的文件夹，建议在 Windows 下新建文件夹。</p>
+<p>操作前提：安装 VMware Tools。</p>
+<p>在关机状态下（不关机也可以，不过建议操作完后注销或重启），点击编辑虚拟机设置-选项-共享文件夹-添加，然后按照提示添加即可。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/jnfxrxut.png" alt="img"></p>
+<p>添加完后，你的共享文件夹位置在 &#x2F;mnt&#x2F;hgfs 里面，如果你不会打开，在”文件“应用里点击”其他位置“-”计算机“，然后按路径打开即可。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/szzeovay.png" alt="img"></p>
+<p>这是你可能会感觉很麻烦，难道每次打开都要进入这个路径，可不可以放在桌面上呢？</p>
+<p>那就是下一篇教程的内容了。</p>
+<h3 id="3-修改共享文件夹位置"><a href="#3-修改共享文件夹位置" class="headerlink" title="3.修改共享文件夹位置"></a>3.修改共享文件夹位置</h3><p>提示：请保证新的文件夹里是空的。如果失效了，重新按照流程来操作即可。</p>
+<p>这里以桌面为例。（PS：为什么明明桌面上有两个图标（名字为用户名的文件夹和回收站）却是空文件夹？因为那两个图标仅是一个快捷方式，你去文件里真正打开会发现是空的）</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/sl1gmvxc.png" alt="img"></p>
+<p>首先打开主文件夹，右键”桌面“，点击”属性“，找到”上级文件夹“后面的路径，请记好。</p>
+<p>然后按照上图右下角窗口的路径，打开 vmware-tools 文件，使用任何一个文本编辑器打开都可以。</p>
+<p>然后按下 Ctrl+F 搜索 ”vmhgfs_mnt”，找到这个名字的变量，将后面的值修改为你刚刚的上级文件夹路径+你想要<strong>把共享文件夹放进去</strong>的文件夹名称。比如我这里就是 &#x2F;home&#x2F;noilinux&#x2F;桌面。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/6be54mn6.png" alt="img"></p>
+<p><strong>注意前面不要少”&#x2F;“！不要丢了外面的双引号！不要在语句尾画蛇添足加逗号或是分号！</strong></p>
+<p>保存，如果要求输入密码就输入，然后过一会应该就自动刷新了，或者你着急可以注销或是重启即可生效。</p>
+<p>效果如下：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/mhiaz3zb.png" alt="img"></p>
+<h3 id="4-对于内置-IDE-和文本编辑器的评价"><a href="#4-对于内置-IDE-和文本编辑器的评价" class="headerlink" title="4.对于内置 IDE 和文本编辑器的评价"></a>4.对于内置 IDE 和文本编辑器的评价</h3><p>这里主要评价一些有比较现代的 UI 的软件，对于剩下偏硬核的为了新手友好就不评价了。（其实是我也不会用）</p>
+<h4 id="VS-code（自己使用强推）"><a href="#VS-code（自己使用强推）" class="headerlink" title="VS code（自己使用强推）"></a>VS code（自己使用强推）</h4><p>优点：强大的代码补全，如果可以安装扩展功能非常强大，自带终端。</p>
+<p>缺点：扩展和中文翻译需要联网下载扩展，比赛别想用。编译需要手写 json 文件，略显麻烦。</p>
+<h4 id="Sublime-Text（比赛和平时都可以使用）"><a href="#Sublime-Text（比赛和平时都可以使用）" class="headerlink" title="Sublime Text（比赛和平时都可以使用）"></a>Sublime Text（比赛和平时都可以使用）</h4><p>优点：比 VS code 更轻量化，有还算可以的代码补全，有中文，可以单文件编译，性能好，可以打开几百行大样例。</p>
+<p>缺点：终端不显示返回值，修改编译选项需要修改程序内部配置文件（可以自己上网搜怎么改），不支持调试。</p>
+<h4 id="Geany（比赛强推）"><a href="#Geany（比赛强推）" class="headerlink" title="Geany（比赛强推）"></a>Geany（比赛强推）</h4><p>优点：轻量化的 IDE，支持单文件编译，有中文，修改编译选项可以直接从菜单修改，开箱即用，基本不需要配置。</p>
+<p>缺点：不支持调试，代码补全相当鸡肋。</p>
+<h4 id="Code-Blocks"><a href="#Code-Blocks" class="headerlink" title="Code::Blocks"></a>Code::Blocks</h4><p>优点：唯一支持调试的，有代码补全。</p>
+<p>缺点：过于笨重，编代码还要新建项目，不支持单文件编译，无中文，修改编译选项也比较麻烦。</p>
+<h3 id="5-后记"><a href="#5-后记" class="headerlink" title="5.后记"></a>5.后记</h3><p>不建议更新系统或软件，因为我们不知道 CCF 改过的东西更新后还能不能给正常工作。</p>
+<p>以后有了新发现会加上来的。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/06/12/NOI%20Linux%20%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">http://example.com/2025/06/12/NOI%20Linux%20%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/06/11/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NOI-Linux-%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">1.</span> <span class="toc-text">NOI Linux 进阶使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85-VMware-Tools"><span class="toc-number">1.2.</span> <span class="toc-text">1.如何安装 VMware Tools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E6%96%B0%E5%BB%BA%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.3.</span> <span class="toc-text">2.如何新建共享文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BF%AE%E6%94%B9%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">3.修改共享文件夹位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AF%B9%E4%BA%8E%E5%86%85%E7%BD%AE-IDE-%E5%92%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E8%AF%84%E4%BB%B7"><span class="toc-number">1.5.</span> <span class="toc-text">4.对于内置 IDE 和文本编辑器的评价</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VS-code%EF%BC%88%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%E5%BC%BA%E6%8E%A8%EF%BC%89"><span class="toc-number">1.5.1.</span> <span class="toc-text">VS code（自己使用强推）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sublime-Text%EF%BC%88%E6%AF%94%E8%B5%9B%E5%92%8C%E5%B9%B3%E6%97%B6%E9%83%BD%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">Sublime Text（比赛和平时都可以使用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Geany%EF%BC%88%E6%AF%94%E8%B5%9B%E5%BC%BA%E6%8E%A8%EF%BC%89"><span class="toc-number">1.5.3.</span> <span class="toc-text">Geany（比赛强推）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-Blocks"><span class="toc-number">1.5.4.</span> <span class="toc-text">Code::Blocks</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%90%8E%E8%AE%B0"><span class="toc-number">1.6.</span> <span class="toc-text">5.后记</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/12/NOI%20Linux%20%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="NOI Linux 进阶使用方法">NOI Linux 进阶使用方法</a><time datetime="2025-06-12T10:51:47.000Z" title="Created 2025-06-12 18:51:47">2025-06-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/11/hello-world/" title="Hello World">Hello World</a><time datetime="2025-06-11T04:58:15.760Z" title="Created 2025-06-11 12:58:15">2025-06-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
